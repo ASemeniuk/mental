@@ -1,6 +1,8 @@
 package org.alexsem.mental.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -48,11 +50,19 @@ public class FlashSetupFragment extends Fragment {
 
             }
         });
+
         view.findViewById(R.id.flash_setup_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int argDifficulty = difficulty.getSelectedItemPosition() + 1;
                 int argInterval = calculateIntervalValue(interval.getProgress());
+
+                SharedPreferences.Editor prefs = getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE).edit();
+                prefs.putInt(FlashDisplayActivity.ARG_DIFFICULTY, difficulty.getSelectedItemPosition());
+                prefs.putInt(FlashDisplayActivity.ARG_INTERVAL, interval.getProgress());
+                prefs.apply();
+
+
                 Intent intent = new Intent(getActivity(), FlashDisplayActivity.class);
                 intent.putExtra(FlashDisplayActivity.ARG_DIFFICULTY, argDifficulty);
                 intent.putExtra(FlashDisplayActivity.ARG_INTERVAL, argInterval);
@@ -69,7 +79,11 @@ public class FlashSetupFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, difficultyArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficulty.setAdapter(adapter);
-        interval.setProgress(5);
+
+        //Restore state
+        SharedPreferences prefs = getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE);
+        difficulty.setSelection(prefs.getInt(FlashDisplayActivity.ARG_DIFFICULTY, 0));
+        interval.setProgress(prefs.getInt(FlashDisplayActivity.ARG_INTERVAL, 5));
     }
 
     /**
@@ -81,6 +95,3 @@ public class FlashSetupFragment extends Fragment {
         return (progress + 5) * 100;
     }
 }
-
-
-//TODO save setup to persistent storage

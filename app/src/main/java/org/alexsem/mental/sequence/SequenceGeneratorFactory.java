@@ -10,9 +10,9 @@ public abstract class SequenceGeneratorFactory {
 
     public static final int DIFF_SINGLE_DIGIT = 10;
     public static final int DIFF_DECADES = 20;
-    public static final int DIFF_DOUBLE_DIGIT = 30; //TODO implement
-    public static final int DIFF_HUNDREDS = 40; //TODO implement
-    public static final int DIFF_TRIPLE_DIGIT = 50; //TODO implement
+    public static final int DIFF_DOUBLE_DIGIT = 30;
+    public static final int DIFF_HUNDREDS = 40;
+    public static final int DIFF_TRIPLE_DIGIT = 50;
 
     /**
      * Returns appropriate {@link SequenceGenerator} based on the parameters
@@ -33,12 +33,12 @@ public abstract class SequenceGeneratorFactory {
                         return new Simple2DigitSequenceGenerator(limit);
                     case DIFF_HUNDREDS:
                         return new SimpleHundredSequenceGenerator(limit);
+//                    case DIFF_TRIPLE_DIGIT:
+//                        return new Simple3DigitSequenceGenerator(limit);
                 }
                 break;
-            //TODO other modes
         }
         throw new IllegalArgumentException("Incorrect parameters");
-
     }
 
 

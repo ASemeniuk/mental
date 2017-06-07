@@ -63,7 +63,6 @@ public class SequenceActivity extends AppCompatActivity {
             case SequenceGeneratorFactory.MODE_SIMPLE:
                 mode.setText(R.string.sequence_mode_simple);
                 break;
-            //TODO add others
         }
         mode.setText(String.format(Locale.GERMANY, "%s %d", mode.getText().toString(), getIntent().getExtras().getInt(ARG_LIMIT)));
         TextView difficulty = (TextView) findViewById(R.id.sequence_difficulty);
@@ -83,7 +82,6 @@ public class SequenceActivity extends AppCompatActivity {
             case SequenceGeneratorFactory.DIFF_TRIPLE_DIGIT:
                 difficulty.setText(R.string.sequence_difficulty_3digit);
                 break;
-            //TODO add others
         }
         TextView interval = (TextView) findViewById(R.id.sequence_interval);
         interval.setText(String.format(Locale.GERMANY, getString(R.string.sequence_interval_format), getIntent().getExtras().getInt(ARG_INTERVAL) / 1000f));

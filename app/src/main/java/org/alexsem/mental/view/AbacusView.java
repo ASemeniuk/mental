@@ -22,8 +22,8 @@ public class AbacusView extends View {
     private boolean isMeasurementChanged = false;
     private Paint mPaint;
 
-    private final int COLOR_LINE = 0xff505050; //TODO change
-    private final int COLOR_BEAD = 0xffb38d41; //TODO change
+    private final int COLOR_LINE = 0xff505050;
+    private final int COLOR_BEAD = 0xffb38d41;
 
     private float WIDTH_LINE = 3f;
     private float WIDTH_OUTLINE = 2f;

@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Ментальная арифметика</string>
+
+    <string name="simple_difficulty">Сложность чисел:</string>
+    <string name="simple_limit">Ограничение:</string>
+    <string name="simple_interval">Интервал, с:</string>
+    <string name="simple_repeat">Количество примеров:</string>
+    <string name="simple_start">Начать упражнение</string>
+
+    <string-array name="simple_difficulty_array">
+        <item>Однозначные</item>
+        <item>Десятки</item>
+        <item>Двузначные</item>
+        <item>Сотни</item>
+        <item>Трехзначные</item>
+    </string-array>
+
+    <string name="flash_setup_difficulty">Сложность чисел:</string>
+    <string name="flash_setup_interval">Интервал, с:</string>
+    <string name="flash_setup_start">Начать показ</string>
+
+    <string-array name="flash_setup_difficulty_array">
+        <item>Однозначные</item>
+        <item>Двузначные</item>
+        <item>Трехзначные</item>
+        <item>Четырехзначные</item>
+        <item>Пятизначные</item>
+    </string-array>
+
+    <string name="sequence_label">Просто</string>
+    <string name="sequence_mode">Режим:</string>
+    <string name="sequence_mode_simple">Просто</string>
+    <string name="sequence_difficulty">Сложность:</string>
+    <string name="sequence_difficulty_1digit">Однозначные</string>
+    <string name="sequence_difficulty_decades">Десятки</string>
+    <string name="sequence_difficulty_2digit">Двузначные</string>
+    <string name="sequence_difficulty_hundreds">Сотни</string>
+    <string name="sequence_difficulty_3digit">Трехзначные</string>
+    <string name="sequence_interval">Интервал:</string>
+    <string name="sequence_interval_format" formatted="false">%1.1f с</string>
+    <string name="sequence_repeats">Примеры:</string>
+    <string name="sequence_repeats_format" formatted="false">%d шт.</string>
+    <string name="sequence_start">Нажмите, чтобы начать</string>
+    <string name="sequence_0">0</string>
+    <string name="sequence_1">1</string>
+    <string name="sequence_2">2</string>
+    <string name="sequence_3">3</string>
+    <string name="sequence_4">4</string>
+    <string name="sequence_5">5</string>
+    <string name="sequence_6">6</string>
+    <string name="sequence_7">7</string>
+    <string name="sequence_8">8</string>
+    <string name="sequence_9">9</string>
+    <string name="sequence_delete">X</string>
+    <string name="sequence_verify">Проверить ответ</string>
+    <string name="sequence_next">Продолжить</string>
+
+    <string name="flash_display_label">Флеш-карты</string>
+    <string name="flash_display_difficulty">Сложность:</string>
+    <string name="flash_display_difficulty_1">Однозначные</string>
+    <string name="flash_display_difficulty_2">Двузначные</string>
+    <string name="flash_display_difficulty_3">Трехзначные</string>
+    <string name="flash_display_difficulty_4">Четырехзначные</string>
+    <string name="flash_display_difficulty_5">Пятизначные</string>
+    <string name="flash_display_interval">Интервал:</string>
+    <string name="flash_display_interval_format" formatted="false">%1.1f с</string>
+    <string name="flash_display_start">Нажмите, чтобы начать</string>
+    <string name="flash_display_pause">Пауза</string>
+    <string name="flash_display_resume">Продолжить</string>
+
+    <string name="countdown_3">3</string>
+    <string name="countdown_2">2</string>
+    <string name="countdown_1">1</string>
+
+    <string name="navigation_simple">Просто</string>
+    <string name="navigation_flash">Флеш-карты</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>

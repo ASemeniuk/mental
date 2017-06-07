@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorPrimaryLight">#C8E6C9</color>
+    <color name="colorSecondary">#FFC107</color>
+    <color name="colorSecondaryDark">#FFA000</color>
+    <color name="colorSecondaryLight">#FFECB3</color>
+    <color name="colorAccent">#FF5722</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorInvertedText">#ffffff</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorDivider">#BDBDBD</color>
+
+    <color name="sequence_verify_success">#00bb00</color>
+    <color name="sequence_verify_failed">#ee0000</color>
+
+    <color name="countdown_red">#ee0000</color>
+    <color name="countdown_yellow">#eecc00</color>
+    <color name="countdown_green">#00bb00</color>
+</resources>

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.alexsem.mental.activity.SequenceActivity">
+
+    <GridLayout
+        android:id="@+id/sequence_setup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:columnCount="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sequence_mode"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:id="@+id/sequence_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
+            android:text="@string/sequence_difficulty"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:id="@+id/sequence_difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
+            android:text="@string/sequence_interval"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:id="@+id/sequence_interval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
+            android:text="@string/sequence_repeats"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:id="@+id/sequence_repeats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+    </GridLayout>
+
+    <Button
+        android:id="@+id/sequence_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/sequence_start"
+        android:textStyle="bold"
+        android:theme="@style/Button.Primary"/>
+
+    <org.alexsem.mental.view.CountDownView
+        android:id="@+id/sequence_countdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/sequence_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:textSize="@dimen/sequence_number_text"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/sequence_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="@string/sequence_0"
+        android:textSize="@dimen/sequence_answer_text"
+        android:visibility="gone"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/sequence_answer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/sequence_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:layout_marginTop="@dimen/sequence_button_margin"
+            android:text="@string/sequence_0"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_1"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_0"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_0"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_2"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_2"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_1"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_1"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_3"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_3"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_2"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_2"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_4"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_5"
+            app:layout_constraintTop_toBottomOf="@+id/sequence_0"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_5"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_4"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_4"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_6"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_6"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_5"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_5"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_7"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_7"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_6"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_6"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_8"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_9"
+            app:layout_constraintTop_toBottomOf="@+id/sequence_4"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_9"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_8"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_8"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_delete"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_delete"
+            android:textStyle="bold"
+            android:theme="@style/Button.Secondary"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_9"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_9"
+            app:layout_constraintRight_toLeftOf="@+id/sequence_blank"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_blank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:text="@string/sequence_0"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary.Inverted"
+            android:visibility="invisible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sequence_delete"
+            app:layout_constraintLeft_toRightOf="@+id/sequence_delete"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <Button
+            android:id="@+id/sequence_verify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sequence_button_margin"
+            android:layout_marginRight="@dimen/sequence_button_margin"
+            android:layout_marginTop="@dimen/sequence_button_margin"
+            android:paddingLeft="64dp"
+            android:paddingRight="64dp"
+            android:text="@string/sequence_verify"
+            android:textStyle="bold"
+            android:theme="@style/Button.Primary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sequence_8"
+            android:layout_marginStart="@dimen/sequence_button_margin"
+            android:layout_marginEnd="@dimen/sequence_button_margin"/>
+
+        <TextView
+            android:id="@+id/sequence_log"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sequence_8"/>
+
+        <Button
+            android:id="@+id/sequence_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:paddingLeft="48dp"
+            android:paddingRight="48dp"
+            android:text="@string/sequence_next"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sequence_log"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

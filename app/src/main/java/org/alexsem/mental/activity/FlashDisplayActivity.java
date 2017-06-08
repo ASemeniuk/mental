@@ -44,6 +44,7 @@ public class FlashDisplayActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         setup = findViewById(R.id.flash_display_setup);
         TextView difficulty = (TextView) findViewById(R.id.flash_display_difficulty);

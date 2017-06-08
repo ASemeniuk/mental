@@ -2,6 +2,7 @@ package org.alexsem.mental.activity;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +57,7 @@ public class SequenceActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         setup = findViewById(R.id.sequence_setup);
         TextView mode = (TextView) findViewById(R.id.sequence_mode);

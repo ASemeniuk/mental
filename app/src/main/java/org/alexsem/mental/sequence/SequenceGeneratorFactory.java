@@ -33,8 +33,8 @@ public abstract class SequenceGeneratorFactory {
                         return new Simple2DigitSequenceGenerator(limit);
                     case DIFF_HUNDREDS:
                         return new SimpleHundredSequenceGenerator(limit);
-//                    case DIFF_TRIPLE_DIGIT:
-//                        return new Simple3DigitSequenceGenerator(limit);
+                    case DIFF_TRIPLE_DIGIT:
+                        return new SimpleMultiDigitSequenceGenerator(3, limit);
                 }
                 break;
         }

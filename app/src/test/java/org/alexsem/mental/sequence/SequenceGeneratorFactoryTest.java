@@ -1,6 +1,5 @@
 package org.alexsem.mental.sequence;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -42,6 +41,13 @@ public class SequenceGeneratorFactoryTest {
         assertEquals("Not a hundreds generator", 0, number % 100);
     }
 
+    @Test
+    public void testSimple3Digit() {
+        SequenceGenerator generator = SequenceGeneratorFactory.newGenerator(SequenceGeneratorFactory.MODE_SIMPLE, SequenceGeneratorFactory.DIFF_TRIPLE_DIGIT);
+        int number = generator.getNextNumber();
+        assertTrue("Not a 3-digit generator", number >= 100);
+        assertTrue("Not a 3-digit generator", number <= 999);
+    }
 
     //TODO add other generators
 

@@ -46,6 +46,7 @@ public class SimpleFragment extends Fragment {
         limit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                //TODO not called if 0 selected
                 limitText.setText(String.valueOf(calculateLimitValue(progress)));
             }
 

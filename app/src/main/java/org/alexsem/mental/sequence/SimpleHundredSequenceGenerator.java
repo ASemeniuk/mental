@@ -4,14 +4,14 @@ import java.util.Random;
 
 class SimpleHundredSequenceGenerator implements SequenceGenerator {
 
+    private final int LIMIT;
     private int currentResult;
     private Random random;
-    private int limit;
 
     public SimpleHundredSequenceGenerator(int limit) {
         random = new Random();
         currentResult = 0;
-        this.limit = limit * 100;
+        this.LIMIT = limit * 100;
     }
 
     private final int[][] SEQUENCE = {
@@ -38,7 +38,7 @@ class SimpleHundredSequenceGenerator implements SequenceGenerator {
         int nextNumber;
         do {
             nextNumber = SEQUENCE[currentResult / 100][random.nextInt(SEQUENCE[currentResult / 100].length)];
-        } while (currentResult + nextNumber > limit);
+        } while (currentResult + nextNumber > LIMIT);
         currentResult += nextNumber;
         return nextNumber;
     }

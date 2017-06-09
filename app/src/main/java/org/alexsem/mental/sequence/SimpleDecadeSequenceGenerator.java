@@ -4,14 +4,14 @@ import java.util.Random;
 
 class SimpleDecadeSequenceGenerator implements SequenceGenerator {
 
+    private final int LIMIT;
     private int currentResult;
     private Random random;
-    private int limit;
 
     public SimpleDecadeSequenceGenerator(int limit) {
+        this.LIMIT = limit * 10;
         random = new Random();
         currentResult = 0;
-        this.limit = limit * 10;
     }
 
     private final int[][] SEQUENCE = {
@@ -38,7 +38,7 @@ class SimpleDecadeSequenceGenerator implements SequenceGenerator {
         int nextNumber;
         do {
             nextNumber = SEQUENCE[currentResult / 10][random.nextInt(SEQUENCE[currentResult / 10].length)];
-        } while (currentResult + nextNumber > limit);
+        } while (currentResult + nextNumber > LIMIT);
         currentResult += nextNumber;
         return nextNumber;
     }

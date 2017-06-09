@@ -38,6 +38,7 @@ public class FlashSetupFragment extends Fragment {
         interval.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                //TODO not called if 0 selected
                 intervalText.setText(String.format(Locale.GERMANY, "%1.1f", calculateIntervalValue(progress) / 1000f));
             }
 
@@ -61,7 +62,6 @@ public class FlashSetupFragment extends Fragment {
                 prefs.putInt(FlashDisplayActivity.ARG_DIFFICULTY, difficulty.getSelectedItemPosition());
                 prefs.putInt(FlashDisplayActivity.ARG_INTERVAL, interval.getProgress());
                 prefs.apply();
-
 
                 Intent intent = new Intent(getActivity(), FlashDisplayActivity.class);
                 intent.putExtra(FlashDisplayActivity.ARG_DIFFICULTY, argDifficulty);

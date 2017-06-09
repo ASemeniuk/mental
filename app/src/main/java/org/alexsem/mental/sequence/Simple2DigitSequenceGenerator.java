@@ -4,14 +4,14 @@ import java.util.Random;
 
 class Simple2DigitSequenceGenerator implements SequenceGenerator {
 
+    private final int LIMIT;
     private int currentResult;
     private Random random;
-    private int limit;
 
     public Simple2DigitSequenceGenerator(int limit) {
+        this.LIMIT = limit;
         random = new Random();
         currentResult = 0;
-        this.limit = limit;
     }
 
     private final int[][] SEQUENCE = {
@@ -42,11 +42,11 @@ class Simple2DigitSequenceGenerator implements SequenceGenerator {
         do {
             do {
                 nextNumber1 = SEQUENCE[currentResult1][random.nextInt(SEQUENCE[currentResult1].length)];
-            } while (currentResult1 + nextNumber1 > limit);
+            } while (currentResult1 + nextNumber1 > LIMIT);
 
             do {
                 nextNumber2 = SEQUENCE[currentResult2][random.nextInt(SEQUENCE[currentResult2].length)];
-            } while (currentResult2 + nextNumber2 > limit);
+            } while (currentResult2 + nextNumber2 > LIMIT);
         } while (nextNumber1 * nextNumber2 < 0);
 
         int nextNumber = nextNumber1 * 10 + nextNumber2;

@@ -4,14 +4,14 @@ import java.util.Random;
 
 class Simple1DigitSequenceGenerator implements SequenceGenerator {
 
+    private final int LIMIT;
     private int currentResult;
     private Random random;
-    private int limit;
 
     public Simple1DigitSequenceGenerator(int limit) {
+        this.LIMIT = limit;
         random = new Random();
         currentResult = 0;
-        this.limit = limit;
     }
 
     private final int[][] SEQUENCE = {
@@ -37,7 +37,7 @@ class Simple1DigitSequenceGenerator implements SequenceGenerator {
         int nextNumber;
         do {
             nextNumber = SEQUENCE[currentResult][random.nextInt(SEQUENCE[currentResult].length)];
-        } while (currentResult + nextNumber > limit);
+        } while (currentResult + nextNumber > LIMIT);
         currentResult += nextNumber;
         return nextNumber;
     }

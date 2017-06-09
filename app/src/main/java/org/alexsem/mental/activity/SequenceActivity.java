@@ -285,3 +285,5 @@ public class SequenceActivity extends AppCompatActivity {
         return Color.HSVToColor(hsv);
     }
 }
+
+//TODO resizeable edit text

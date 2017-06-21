@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Ментальная арифметика</string>
 
+    <string name="sounds_path_service" formatted="false" translatable="false">sounds/service/%s.mp3</string>
+    <string name="sounds_path_sequence" formatted="false" translatable="false">sounds/sequence/%s%d.wav</string>
+
     <string name="simple_difficulty">Сложность чисел:</string>
     <string name="simple_limit">Ограничение:</string>
     <string name="simple_interval">Интервал, с:</string>

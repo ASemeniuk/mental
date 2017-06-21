@@ -16,6 +16,7 @@ import org.alexsem.mental.sequence.SequenceTimer;
 import org.alexsem.mental.view.AbacusView;
 import org.alexsem.mental.view.CountDownView;
 
+import java.io.IOException;
 import java.util.Locale;
 
 public class FlashDisplayActivity extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class FlashDisplayActivity extends AppCompatActivity {
     private NumberGenerator generator;
     private SequenceTimer timer;
     private SoundPool soundPlayer;
-    private int soundPlayerBeepId;
+    private int soundPlayerBeepId ;
 
 
     @Override
@@ -121,7 +122,12 @@ public class FlashDisplayActivity extends AppCompatActivity {
 
         generator = new NumberGenerator(numberOfDigits);
         soundPlayer = new SoundPool(2, AudioManager.STREAM_MUSIC, 100);
-        soundPlayerBeepId = soundPlayer.load(this, R.raw.beep, 1);
+        String path = String.format(getString(R.string.sounds_path_service), "beep");
+        try {
+            soundPlayerBeepId = soundPlayer.load(getAssets().openFd(path), 1);
+        } catch (IOException e) {
+            soundPlayerBeepId = -1;
+        }
     }
 
     @Override

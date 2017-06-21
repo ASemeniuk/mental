@@ -34,6 +34,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_close_margin"
+            android:text="@string/flash_display_limit"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:id="@+id/flash_display_limit"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_close_margin"
             android:text="@string/flash_display_interval"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 

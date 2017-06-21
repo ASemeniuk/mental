@@ -7,17 +7,16 @@ import java.util.Random;
  */
 public class NumberGenerator {
 
+    private final int DIGITS;
+    private final int LIMIT;
     private Random random;
 
-    private int maxValueBound;
     private int currentNumber;
 
-    public NumberGenerator(int numberOfDigits) {
+    public NumberGenerator(int numberOfDigits, int limit) {
+        this.DIGITS = numberOfDigits;
+        this.LIMIT = limit;
         this.currentNumber = -1;
-        this.maxValueBound = 1;
-        for (int i = 0; i < numberOfDigits; i++) {
-            maxValueBound *= 10;
-        }
         this.random = new Random();
     }
 
@@ -28,7 +27,11 @@ public class NumberGenerator {
     public int generate() {
         int number;
         do {
-            number = random.nextInt(maxValueBound);
+            number = 0;
+            for (int i = 0; i < DIGITS; i++) {
+                number *= 10;
+                number += random.nextInt(LIMIT + 1);
+            }
         } while (number == currentNumber);
         currentNumber = number;
         return number;

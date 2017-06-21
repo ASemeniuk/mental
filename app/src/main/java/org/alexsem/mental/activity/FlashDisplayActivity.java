@@ -22,6 +22,7 @@ import java.util.Locale;
 public class FlashDisplayActivity extends AppCompatActivity {
 
     public static final String ARG_DIFFICULTY = "flash_difficulty";
+    public static final String ARG_LIMIT = "flash_limit";
     public static final String ARG_INTERVAL = "flash_interval";
 
     private View setup;
@@ -43,9 +44,11 @@ public class FlashDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flash_display_activity);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        }
 
         setup = findViewById(R.id.flash_display_setup);
         TextView difficulty = (TextView) findViewById(R.id.flash_display_difficulty);
@@ -67,6 +70,8 @@ public class FlashDisplayActivity extends AppCompatActivity {
                 difficulty.setText(R.string.flash_display_difficulty_5);
                 break;
         }
+        TextView limit = (TextView) findViewById(R.id.flash_display_limit);
+        limit.setText(String.format(Locale.GERMANY, getString(R.string.flash_display_limit_format), getIntent().getExtras().getInt(ARG_LIMIT)));
         TextView interval = (TextView) findViewById(R.id.flash_display_interval);
         interval.setText(String.format(Locale.GERMANY, getString(R.string.flash_display_interval_format), getIntent().getExtras().getInt(ARG_INTERVAL) / 1000f));
         start = (Button) findViewById(R.id.flash_display_start);
@@ -120,7 +125,7 @@ public class FlashDisplayActivity extends AppCompatActivity {
             }
         });
 
-        generator = new NumberGenerator(numberOfDigits);
+        generator = new NumberGenerator(numberOfDigits, getIntent().getExtras().getInt(ARG_LIMIT));
         soundPlayer = new SoundPool(2, AudioManager.STREAM_MUSIC, 100);
         String path = String.format(getString(R.string.sounds_path_service), "beep");
         try {

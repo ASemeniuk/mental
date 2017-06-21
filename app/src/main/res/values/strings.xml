@@ -19,6 +19,7 @@
     </string-array>
 
     <string name="flash_setup_difficulty">Сложность чисел:</string>
+    <string name="flash_setup_limit">Ограничение:</string>
     <string name="flash_setup_interval">Интервал, с:</string>
     <string name="flash_setup_start">Начать показ</string>
 
@@ -65,6 +66,8 @@
     <string name="flash_display_difficulty_3">Трехзначные</string>
     <string name="flash_display_difficulty_4">Четырехзначные</string>
     <string name="flash_display_difficulty_5">Пятизначные</string>
+    <string name="flash_display_limit">Цифры:</string>
+    <string name="flash_display_limit_format" formatted="false">от 0 до %d</string>
     <string name="flash_display_interval">Интервал:</string>
     <string name="flash_display_interval_format" formatted="false">%1.1f с</string>
     <string name="flash_display_start">Нажмите, чтобы начать</string>

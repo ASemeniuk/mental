@@ -25,6 +25,8 @@ import java.util.Locale;
 public class FlashSetupFragment extends Fragment {
 
     private Spinner difficulty;
+    private SeekBar limit;
+    private TextView limitText;
     private SeekBar interval;
     private TextView intervalText;
 
@@ -33,6 +35,28 @@ public class FlashSetupFragment extends Fragment {
         View view = inflater.inflate(R.layout.flash_setup_fragment, container, false);
 
         difficulty = (Spinner) view.findViewById(R.id.flash_setup_difficulty);
+
+        //Limit
+        limitText = (TextView) view.findViewById(R.id.flash_setup_limit_text);
+        limit = (SeekBar) view.findViewById(R.id.flash_setup_limit);
+        limit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                //TODO not called if 0 selected
+                limitText.setText(String.valueOf(calculateLimitValue(progress)));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        //Interval
         intervalText = (TextView) view.findViewById(R.id.flash_setup_interval_text);
         interval = (SeekBar) view.findViewById(R.id.flash_setup_interval);
         interval.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -56,15 +80,18 @@ public class FlashSetupFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 int argDifficulty = difficulty.getSelectedItemPosition() + 1;
+                int argLimit = calculateLimitValue(limit.getProgress());
                 int argInterval = calculateIntervalValue(interval.getProgress());
 
                 SharedPreferences.Editor prefs = getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE).edit();
                 prefs.putInt(FlashDisplayActivity.ARG_DIFFICULTY, difficulty.getSelectedItemPosition());
+                prefs.putInt(FlashDisplayActivity.ARG_LIMIT, limit.getProgress());
                 prefs.putInt(FlashDisplayActivity.ARG_INTERVAL, interval.getProgress());
                 prefs.apply();
 
                 Intent intent = new Intent(getActivity(), FlashDisplayActivity.class);
                 intent.putExtra(FlashDisplayActivity.ARG_DIFFICULTY, argDifficulty);
+                intent.putExtra(FlashDisplayActivity.ARG_LIMIT, argLimit);
                 intent.putExtra(FlashDisplayActivity.ARG_INTERVAL, argInterval);
                 getActivity().startActivity(intent);
             }
@@ -83,7 +110,17 @@ public class FlashSetupFragment extends Fragment {
         //Restore state
         SharedPreferences prefs = getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE);
         difficulty.setSelection(prefs.getInt(FlashDisplayActivity.ARG_DIFFICULTY, 0));
+        limit.setProgress(prefs.getInt(FlashDisplayActivity.ARG_LIMIT, 8));
         interval.setProgress(prefs.getInt(FlashDisplayActivity.ARG_INTERVAL, 5));
+    }
+
+    /**
+     * Process limit SeekBar progress into correct value
+     * @param progress Current progress shown by SeekBar
+     * @return Calculated limit
+     */
+    private int calculateLimitValue(int progress) {
+        return progress + 1;
     }
 
     /**

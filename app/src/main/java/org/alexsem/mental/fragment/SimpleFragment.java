@@ -26,12 +26,12 @@ import java.util.Locale;
 public class SimpleFragment extends Fragment {
 
     private Spinner difficulty;
+    private SeekBar limit;
+    private TextView limitText;
     private SeekBar interval;
     private TextView intervalText;
     private SeekBar repeats;
     private TextView repeatsText;
-    private SeekBar limit;
-    private TextView limitText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -55,9 +55,11 @@ public class SequenceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sequence_activity);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        }
 
         setup = findViewById(R.id.sequence_setup);
         TextView mode = (TextView) findViewById(R.id.sequence_mode);

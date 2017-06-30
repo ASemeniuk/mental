@@ -106,7 +106,7 @@ public class SequenceSoundPlayer {
                     }
                     AssetFileDescriptor descriptor;
                     try {
-                        descriptor = assets.openFd(String.format(pathSequence, i < 0 ? "minus" : "plus", i));
+                        descriptor = assets.openFd(String.format(pathSequence, i < 0 ? "minus" : "plus", Math.abs(i)));
                     } catch (IOException e) {
                         continue;
                     }

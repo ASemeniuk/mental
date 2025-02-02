@@ -123,30 +123,19 @@ public class SequenceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Button button = (Button) view;
-                switch (button.getId()) {
-                    case R.id.sequence_0:
-                    case R.id.sequence_1:
-                    case R.id.sequence_2:
-                    case R.id.sequence_3:
-                    case R.id.sequence_4:
-                    case R.id.sequence_5:
-                    case R.id.sequence_6:
-                    case R.id.sequence_7:
-                    case R.id.sequence_8:
-                    case R.id.sequence_9:
-                        if (answer.isEnabled()) {
-                            if (answer.getText().toString().equals("0")) {
-                                answer.setText(button.getText().toString());
-                            } else if (answer.getText().length() < 5) {
-                                answer.setText(answer.getText() + button.getText().toString());
-                            }
+                int id = button.getId();
+                if (id == R.id.sequence_0 || id == R.id.sequence_1 || id == R.id.sequence_2 || id == R.id.sequence_3 || id == R.id.sequence_4 || id == R.id.sequence_5 || id == R.id.sequence_6 || id == R.id.sequence_7 || id == R.id.sequence_8 || id == R.id.sequence_9) {
+                    if (answer.isEnabled()) {
+                        if (answer.getText().toString().equals("0")) {
+                            answer.setText(button.getText().toString());
+                        } else if (answer.getText().length() < 5) {
+                            answer.setText(answer.getText() + button.getText().toString());
                         }
-                        break;
-                    case R.id.sequence_delete:
-                        if (answer.isEnabled()) {
-                            answer.setText(getString(R.string.sequence_0));
-                        }
-                        break;
+                    }
+                } else if (id == R.id.sequence_delete) {
+                    if (answer.isEnabled()) {
+                        answer.setText(getString(R.string.sequence_0));
+                    }
                 }
             }
         };
@@ -244,6 +233,7 @@ public class SequenceActivity extends AppCompatActivity {
 
     /**
      * Start generating sequence
+     *
      * @param interval How quickly to change values
      * @param repeats  How many values to show
      */
@@ -280,6 +270,7 @@ public class SequenceActivity extends AppCompatActivity {
 
     /**
      * Generate random fully-saturated color
+     *
      * @return New color
      */
     private int generateRandomColor() {

@@ -73,21 +73,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.navigation_simple: {
-                setTitle(R.string.sequence_label);
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new SimpleFragment());
-                ft.commit();
-                break;
-            }
-            case R.id.navigation_flashcards: {
-                setTitle(R.string.flash_display_label);
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new FlashSetupFragment());
-                ft.commit();
-                break;
-            }
+        int itemId = item.getItemId();
+        if (itemId == R.id.navigation_simple) {
+            setTitle(R.string.sequence_label);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.main_content, new SimpleFragment());
+            ft.commit();
+        } else if (itemId == R.id.navigation_flashcards) {
+            setTitle(R.string.flash_display_label);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.main_content, new FlashSetupFragment());
+            ft.commit();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
